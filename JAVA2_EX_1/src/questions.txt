@@ -1,0 +1,52 @@
+3.3 Les classes Ingredient et Client
+Question 1 : Pour rappel, un objet est une instance d’une classe. La classe correspond au type de
+l’objet. En UML, la représentation d’une classe est divisée en trois parties. À quoi correspondent ces
+parties ?
+-> Le nom de la classe, les attributs et les méthodes
+
+Question 2 : Il est important qu’une classe veille à l’encapsulation. En quoi consiste l’encapsulation ?
+-> L'encapsulation consiste à regrouper les données et les méthodes qui agissent sur ces données dans une même entité.
+
+Question 3 : Que signifie le fait que la variable numeroSuivant soit soulignée ? Comment traduit-on
+cela en java ?
+-> Le fait qu'elle soit soulignée signifie qu'elle est static, donc elle est partagés à toutes les instances de la même classe
+
+
+3.4 Égalités référentielles et structurelles
+L’égalité référentielle consiste à comparer les références mémoires : deux objets sont considérés
+comme égaux s’ils ont la même référence mémoire. En java, on utilise le == pour voir si deux objets
+sont égaux.
+
+Dans les faits, on a souvent envie de considérer que deux objets sont égaux s’ils possèdent les
+mêmes valeurs pour certains de leurs attributs. Par exemple, si deux clients ont le même numéro, on
+veut qu’ils soient considérés comme égaux. C’est ce qu’on appelle l’égalité structurelle.
+
+Question 4 : en Java, que faut-il faire pour définir l’égalité structurelle pour une classe ? Comment
+teste-t-on l’égalité structurelle entre deux objets?
+->En utilisant .equals()
+
+
+3.5 La classe Pizza
+Comme indiquée sur le diagramme, la classe Pizza doit être abstraite.
+Question 5 : quel est l’intérêt d’une classe abstraite ?
+-> On ne l'instancie pas directement, elle sert de modèle pour les classes qui en héritent.
+
+Question 6 : La classe pizza possède deux constructeurs. Comment s’appelle le fait d’avoir deux
+constructeurs ou d’avoir deux méthodes de même nom ?
+-> la surcharge
+
+Question 7 : pour éviter de recopier le code commun, on peut, dans un constructeur d’une classe,
+invoquer un autre constructeur de la classe. Comment fait-on cela en java ?
+-> On utilise le mot clé this().
+
+Question 8 : Comment invoque-t-on le constructeur de la classe parent dans le constructeur d’une sous-classe.
+-> On utilise le mot clé super().
+
+Question 9 : Comment appelle-t-on le fait de remettre dans une sous-classe une méthode afin d’en changer le comportement ?
+-> On appelle ça le polymorphisme.
+Question 10 : UnsupportedOperationException est-elle une checked ou une unchecked exception ?
+-> C'est une unchecked exception.
+Question 11 : Quelles sont les différences entre les checked et les unchecked exceptions ?
+>  La différence entre les deux est que les checked exceptions doivent être gérées dans le code (avec try catch), alors que les unchecked ne le demande pas.
+Question 12 : en java, comment fait-on pour invoquer une méthode de la classe parent dans une sous-classe ?
+> super();
