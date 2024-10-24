@@ -27,7 +27,10 @@ class MoniteurImplTest {
         Mockito.when(stage.getMoniteur()).thenReturn(moniteur);
         Mockito.when(stage.getNumeroDeSemaine()).thenReturn(1);
         Mockito.when(stage.getSport()).thenReturn(sport);
-        assertAll(() -> assertTrue(moniteur.ajouterStage(stage)),
+
+        assertTrue(moniteur.ajouterStage(stage));
+        Mockito.verify(stage).enregistrerMoniteur(moniteur);
+        assertAll(
                 () -> assertEquals(1, moniteur.stages().size())
         );
     }
@@ -88,8 +91,7 @@ class MoniteurImplTest {
     @Test
     void TestMoniteurTC7() {
         amenerALEtat(4,moniteur);
-        Moniteur nouveauMoniteur;
-        Stage stage = mockStageParDefaut(5, nouveauMoniteur = new MoniteurImpl("Dimitri"));
+        Stage stage = mockStageParDefaut(5, new MoniteurImpl("Dimitri"));
         assertAll(
                 () -> assertFalse(stage.getMoniteur().equals(moniteur)),
                 () -> assertFalse(moniteur.ajouterStage(stage)),
@@ -120,8 +122,6 @@ class MoniteurImplTest {
                 () -> assertEquals(4, moniteur.stages().size())
         );
     }
-
-
 
 
     private Stage mockStageParDefaut(int etat){
